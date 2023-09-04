@@ -13,4 +13,4 @@
 
 ## License
 
-all rights reserved for developer  .   [Contact Us ](https://wa.me/0201142117402?text="Comming-from-Githup").
+all rights reserved for developer  .   [Contact Us ](https://wa.me/0201142117402?text="coming-from-github").
