@@ -1,0 +1,255 @@
+/*
+  START => Slider Section
+*/
+.section-slider {
+  .swiper-pagination-progressbar {
+    background-color: transparent;
+    height: 1px;
+
+    .swiper-pagination-progressbar-fill {
+      background: #e96021;
+    }
+  }
+
+  .swiper-slide {
+    &_caption {
+      position: absolute;
+      top: 60%;
+      left: 60%;
+      @include translate(-60%, -60%);
+      text-align: center;
+      @include media-max($lg) {
+        width: 60%;
+      }
+      h2 {
+        font-size: 3rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 6px #000000;
+        color: #fff;
+        letter-spacing: 3px;
+        @include media-max($lg) {
+          font-size: 1.5rem;
+        }
+        @include media-max($sm) {
+          font-size: 1rem;
+        }
+      }
+      p {
+        margin-bottom: 0;
+        font-size: 1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #fff;
+        @include media-max($lg) {
+          font-size: 1rem;
+        }
+        @include media-max($sm) {
+          font-size: .8rem;
+        }
+      }
+      .btn-style {
+        display: inline-block;
+        margin: 0;
+        margin-top: 1rem;
+        padding: 10px 30px;
+        background-color: #000000;
+        color: #ffc829;
+        border-radius: 30px;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 1.1rem;
+        @include media-max($lg) {
+          padding: 8px 10px;
+          font-size: 12px;
+          margin-top: 5px;
+        }
+        @include media-max($sm) {
+          padding: 6px 8px;
+          font-size: 10px;
+        }
+        &:hover {
+          background-color: var(--mainColor);
+          color: #000000;
+          transform: translateY(-2px);
+        }
+      }
+
+      &.txt-1 {
+        top: 70%;
+        left: auto;
+        right: 50px;
+        @include translateY(-50%);
+        @include media-max($lg) {
+          width: 80%;
+          top: 60%;
+          right: 24px;
+        }
+        h2 {
+          margin-top: 0.5rem;
+          color: #fff;
+          text-shadow: 2px 1px 6px #000000;
+          font-size: 2.2rem;
+          @include media-max($lg) {
+            font-size: 1.5rem;
+          }
+          @include media-max($sm) {
+            font-size: .8rem;
+          }
+        }
+        p {
+          font-size: 1.5rem;
+          color: #000000;
+          font-weight: 800;
+          @include media-max($lg) {
+            font-size: 1rem;
+          }
+          @include media-max($sm) {
+            font-size: .8rem;
+          }
+        }
+        .btn-style {
+          display: inline-block;
+          margin: 0;
+          margin-top: 1rem;
+          padding: 10px 20px;
+          background-color: var(--mainColor);
+          color: #fff;
+          border-radius: 30px;
+          text-transform: uppercase;
+          font-weight: 700;
+          border: 0;
+          @include media-max($lg) {
+            padding: 8px 10px;
+            font-size: 12px;
+            margin-top: 5px;
+          }
+          @include media-max($sm) {
+            padding: 6px 8px;
+            font-size: 10px;
+          }
+          &:hover {
+            background-color: var(--mainColor);
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+  }
+
+  .right-banner {
+    @include media-max($md) {
+      display: flex;
+    }
+    a {
+      @if $directions== "ltr" {
+        padding-left: 5px;
+      } @else {
+        padding-right: 5px;
+      }
+      &:nth-child(1) {
+        padding-bottom: 8px;
+      }
+      display: block;
+      position: relative;
+      @include media-max($md) {
+        padding-left: 0;
+        &:nth-child(2) {
+          @if $directions== "ltr" {
+            padding-left: 5px;
+          } @else {
+            padding-right: 5px;
+          }
+        }
+      }
+      .caption {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        @include translateY(-50%);
+        text-align: center;
+        color: #fff;
+        h5 {
+          font-weight: bold;
+          @include media-max($lg) {
+            font-size: 1rem;
+          }
+          @include media-max($sm) {
+            font-size: .8rem;
+          }
+        }
+        p {
+          @include media-max($lg) {
+            font-size: 1rem;
+          }
+          @include media-max($sm) {
+            font-size: .8rem;
+          }
+        }
+        .btn-style {
+          @include media-max($lg) {
+            font-size: 14px;
+            padding: 6px 8px;
+          }
+          @include media-max($sm) {
+            padding: 4px 6px;
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+/* //END =>  Slider Section */
+
+/* 
+  START =>  Slider Style 2
+*/
+.home-style2 {
+  .swiper-home-two {
+    height: 500px;
+    @include media-max($md) {
+      height: 213px;
+    }
+    .swiper-slide {
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      img {
+        width: 100%;
+      }
+    }
+    .next_btn,
+    .prev_btn {
+      position: absolute;
+      top: 50%;
+      @include translateY(-50%);
+      z-index: 1;
+      background-color: #fff;
+      color: var(--fontsColor);
+      height: 40px;
+      width: 50px;
+      &:hover {
+        background-color: var(--mainColor);
+        color: #fff;
+      }
+      &::after {
+        font-size: 25px;
+        @include transition(all, 0.2s, linear);
+      }
+    }
+    .next_btn {
+      left: 0;
+    }
+    .prev_btn {
+      right: 0;
+    }
+  }
+  .right-banner {
+    a {
+      padding-left: 0;
+    }
+  }
+}
+/* //END =>  Slider Style 2 */

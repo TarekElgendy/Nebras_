@@ -1,0 +1,176 @@
+      wire:ignore.self
+
+
+php artisan make:livewire frontend/profile/EditProfile
+php artisan make:livewire frontend/profile/ListDataProfile
+
+//////////
+Section
+Category
+Product
+Inbox
+
+ProductFile
+ProductCategory
+Productitem
+Notification
+Wallet
+Transaction
+Profile
+UserAttachment
+UserPortfolio
+MajorCategory
+Major
+
+UserMajor
+UserCompetence
+UserAddress
+
+Order
+
+OrderItem
+OrderFile
+OrderTage
+
+Offer
+Message
+Review
+Timline
+
+
+
+TimlineItem
+TimlineFile
+
+Cart
+CartItem
+
+
+
+php artisan make:model Inbox -m
+php artisan make:controller Dashboard/InboxController --model=Inbox
+
+php artisan make:model Section -m
+php artisan make:controller Dashboard/SectionController --model=Section
+php artisan make:model SectionTranslation -m
+
+
+php artisan make:model Category -m
+php artisan make:controller Dashboard/CategoryController --model=Category
+php artisan make:model CategoryTranslation -m
+
+
+
+
+php artisan make:model Product -m
+php artisan make:controller Dashboard/ProductController --model=Product
+php artisan make:model ProductTranslation -m
+
+php artisan make:model ProductFile -m
+php artisan make:controller Dashboard/ProductFileController --model=ProductFile
+
+
+
+
+// relationship m-t-m  with produ and cat
+php artisan make:model ProductCategory -m
+php artisan make:controller Dashboard/ProductCategoryController --model=ProductCategory
+
+
+php artisan make:model CategoryProduct -m
+php artisan make:controller Dashboard/CategoryProductController --model=CategoryProduct
+
+
+php artisan make:model Productitem -m
+php artisan make:controller Dashboard/ProductitemController --model=Productitem
+php artisan make:model ProductitemTranslation -m
+
+
+php artisan make:model Notification -m
+php artisan make:controller Dashboard/NotificationController --model=Notification
+
+
+php artisan make:model Wallet -m
+php artisan make:controller Dashboard/WalletController --model=Wallet
+
+php artisan make:model Transaction -m
+php artisan make:controller Dashboard/TransactionController --model=Transaction
+
+php artisan make:model Profile -m
+php artisan make:controller Dashboard/ProfileController --model=Profile
+
+php artisan make:model UserAttachment -m
+php artisan make:controller Dashboard/UserAttachmentController --model=UserAttachment
+
+
+php artisan make:model UserPortfolio -m
+php artisan make:controller Dashboard/UserPortfolioController --model=UserPortfolio
+
+php artisan make:model MajorCategory -m
+php artisan make:controller Dashboard/MajorCategoryController --model=MajorCategory
+php artisan make:model MajorCategoryTranslation -m
+
+php artisan make:model Major -m
+php artisan make:controller Dashboard/MajorController --model=Major
+php artisan make:model MajorTranslation -m
+
+
+php artisan make:model UserMajor -m
+php artisan make:controller Dashboard/UserMajorController --model=UserMajor
+
+php artisan make:model UserCompetence -m
+php artisan make:controller Dashboard/UserCompetenceController --model=UserCompetence
+
+php artisan make:model UserAddress -m
+php artisan make:controller Dashboard/UserAddressController --model=UserAddress
+
+
+php artisan make:model Order -m
+php artisan make:controller Dashboard/OrderController --model=Order
+
+php artisan make:model OrderItem -m
+php artisan make:controller Dashboard/OrderItemController --model=OrderItem
+
+
+php artisan make:model OrderFile -m
+php artisan make:controller Dashboard/OrderFileController --model=OrderFile
+
+
+
+php artisan make:model OrderTage -m
+php artisan make:controller Dashboard/OrderTageController --model=OrderTage
+
+
+php artisan make:model Review -m
+php artisan make:controller Dashboard/ReviewController --model=Review
+
+
+php artisan make:model Offer -m
+php artisan make:controller Dashboard/OfferController --model=Offer
+
+php artisan make:model Timline -m
+php artisan make:controller Dashboard/TimlineController --model=Timline
+
+php artisan make:model TimlineFile -m
+php artisan make:controller Dashboard/TimlineFileController --model=TimlineFile
+
+php artisan make:model TimlineItem -m
+php artisan make:controller Dashboard/TimlineItemController --model=TimlineItem
+
+
+
+php artisan make:model Message -m
+php artisan make:controller Dashboard/MessageController --model=Message
+
+php artisan make:model MessageFile -m
+php artisan make:controller Dashboard/MessageFileController --model=MessageFile
+
+
+///////////
+####################
+
+php artisan make:model Cart -m
+php artisan make:controller Dashboard/CartController --model=Cart
+
+php artisan make:model CartItem -m
+php artisan make:controller Dashboard/CartItemController --model=CartItem

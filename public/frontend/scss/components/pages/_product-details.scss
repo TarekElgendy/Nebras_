@@ -1,0 +1,449 @@
+
+/*
+  START => Product Details Style
+*/
+
+/* Categories Sidebar */
+.categories-sidebar {
+  border: 1px solid #ddd;
+  padding: 10px;
+  @include media-max($lg) {
+    margin-top: 2rem;
+  }
+  .sidebar-title {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 0.5rem;
+    h6 {
+      font-weight: 600;
+      color: var(--secondColor);
+    }
+  }
+  .item {
+    padding: 4px 8px;
+    display: block;
+    color: var(--fontsColor);
+    font-weight: 500;
+    @include media-max($xl) {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 0px;
+    }
+    @include media-max($lg) {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    &:hover {
+      color: var(--mainColor);
+    }
+  }
+}
+
+/* Slides */
+.slides-images {
+  .swiperImages {
+    margin-bottom: 10px;
+    .swiper-slide {
+      a {
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include media-max($lg) {
+          height: 300px;
+        }
+        @include media-max($md) {
+          height: auto;
+        }
+        img {
+          object-fit: contain;
+          height: 100%;
+        }
+      }
+    }
+  }
+  .swiperThumps {
+    position: relative;
+    .swiper-slide {
+      border: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      &.swiper-slide-thumb-active {
+        border: 1px solid var(--mainColor);
+      }
+    }
+
+    .swiper-button {
+      &-prev,
+      &-next {
+        position: absolute;
+        bottom: auto;
+        top: 50%;
+        height: 40px;
+        width: 40px;
+        color: #e9e9e9;
+        background: var(--mainColor);
+        border-radius: 50%;
+        display: none;
+        &::after {
+          font-size: 12px;
+        }
+      }
+
+      &-next {
+        @if $directions == "rtl" {
+          right: auto;
+          left: 0;
+        } @else {
+          right: 0;
+          left: auto;
+        }
+      }
+      &-prev {
+        @if $directions == "rtl" {
+          right: 0;
+          left: auto;
+        } @else {
+          right: auto;
+          left: 0;
+        }
+      }
+    }
+    &:hover {
+      .swiper-button {
+        &-prev,
+        &-next {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+/* Thumbnail Left */
+.thumbnail-left {
+  .gallery-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gallery-main {
+    .swiper-slide {
+      border: 1px solid #ddd;
+      a {
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include media-max($lg) {
+          height: 300px;
+        }
+        @include media-max($md) {
+          height: auto;
+        }
+        img {
+          object-fit: contain;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .gallery-thumbs {
+    width: 80px;
+    height: 430px;
+    @include media-max($lg) {
+      height: 300px;
+      width: 70px;
+    }
+    @include media-max($sm) {
+      height: 220px;
+      width: 50px;
+    }
+    .swiper-slide {
+      border: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      &.swiper-slide-thumb-active {
+        border: 1px solid var(--mainColor);
+      }
+    }
+  }
+
+  .swiper-button {
+    &-prev,
+    &-next {
+      position: absolute;
+      bottom: 0;
+      top: auto;
+      @if $directions == "ltr" {
+        right: 0;
+        left: auto;
+      } @else {
+        right: auto;
+        left: 0;
+      }
+      height: 50px;
+      width: 40px;
+      @include media-max($sm) {
+        height: 30px;
+      }
+      color: #e9e9e9;
+      background: var(--mainColor);
+
+      &::after {
+        font-size: 12px;
+      }
+    }
+
+    &-prev {
+      border-right: 1px solid #e9e9e9;
+      @if $directions == "ltr" {
+        right: 40px;
+        left: auto;
+      } @else {
+        right: auto;
+        left: 40px;
+      }
+    }
+  }
+}
+
+/* Product Info */
+.product-info {
+  padding: 0 1rem;
+  @include media-max($md) {
+    margin-top: 2rem;
+  }
+  .product_title {
+    @include media-max($md) {
+      font-size: 1rem;
+    }
+  }
+  .product_price {
+    strong {
+      color: var(--mainColor);
+      font-weight: 600;
+      font-size: 20px;
+      @if $directions == "ltr" {
+        margin-right: 1rem;
+      } @else {
+        margin-left: 1rem;
+      }
+      del {
+        font-size: 16px;
+        color: #999;
+      }
+    }
+    span {
+      color: var(--mainColor);
+      font-weight: 600;
+    }
+  }
+
+  .rating {
+    span {
+      font-weight: 500;
+      @if $directions == "ltr" {
+        margin-left: 0.5rem;
+      } @else {
+        margin-right: 0.5rem;
+      }
+      color: #888;
+    }
+  }
+
+  .product_qty {
+    margin-top: 0;
+    @if $directions == "ltr" {
+      margin-right: 1rem;
+      @include media-max($lg) {
+        margin-right: 0.4rem;
+      }
+    } @else {
+      margin-left: 1rem;
+      @include media-max($lg) {
+        margin-left: 0.4rem;
+      }
+    }
+    > div {
+      overflow: hidden;
+      span {
+        height: 41px;
+        width: 30px;
+        &:nth-child(1) {
+          @if $directions == "ltr" {
+            border-radius: 3px 0 0 3px;
+          } @else {
+            border-radius: 0 3px 3px;
+          }
+        }
+        &:nth-child(3) {
+          @if $directions == "ltr" {
+            border-radius: 0 3px 3px;
+          } @else {
+            border-radius: 3px 0 0 3px;
+          }
+        }
+        @include media-max($xl) {
+          height: 39px;
+        }
+        @include media-max($sm) {
+          width: 24px;
+        }
+      }
+      input[type="number"] {
+        height: 41px;
+        width: 60px;
+        @include media-max($xl) {
+          width: 30px;
+          height: 39px;
+        }
+        @include media-max($sm) {
+          width: 22px;
+        }
+      }
+    }
+  }
+
+  .product-actions {
+    display: flex;
+    align-items: center;
+    a {
+      padding: 6px 12px;
+      border: 1px solid #ddd;
+      color: #888;
+      border-radius: 3px;
+      font-size: 18px;
+      @if $directions == "ltr" {
+        margin-right: 1rem;
+        @include media-max($sm) {
+          margin-right: 0.4rem;
+        }
+      } @else {
+        margin-left: 1rem;
+        @include media-max($sm) {
+          margin-left: 0.4rem;
+        }
+      }
+      @include media-max($xl) {
+        padding: 9px 14px;
+        font-size: 12px;
+      }
+      &:hover {
+        background-color: var(--mainColor);
+        border-color: var(--mainColor);
+        color: #fff;
+      }
+    }
+    .btn-style {
+      @include media-max($lg) {
+        padding: 10px 3px;
+
+        @if $directions == "ltr" {
+          margin-right: 0.4rem;
+        } @else {
+          margin-left: 0.4rem;
+        }
+      }
+    }
+  }
+}
+
+/* Product Descriptions */
+.product-descriptions {
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  @include media-max($sm) {
+    padding: 1rem 0.5rem;
+  }
+}
+
+/* Comments */
+.comments {
+  .items__comment {
+    box-shadow: 0 0 5px #ddd;
+    padding: 10px;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    transition: 0.5s;
+    &:hover {
+      box-shadow: 0 0 10px #ddd;
+    }
+    .img__comment {
+      img {
+        display: block;
+        margin: auto;
+        border-radius: 50%;
+        width: 80px;
+      }
+    }
+    .info__comment {
+      margin-top: 1rem;
+      > p {
+        color: #666;
+      }
+      .user__name {
+        > p {
+          color: #666;
+          font-weight: bold;
+        }
+      }
+      span.date {
+        color: #666;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+/* Add Comments Form */
+.form-add-comments {
+  .title {
+    font-size: 20px;
+    color: #555;
+  }
+  label {
+    font-weight: 600;
+  }
+  textarea {
+    min-height: 150px;
+    padding: 1rem;
+  }
+
+  .starrating {
+    input {
+      display: none;
+      &:checked ~ label {
+        color: #ffa534;
+      }
+      &:hover ~ label {
+        color: #ffa534;
+      }
+    }
+    label {
+      color: #222222;
+      display: block;
+      @include transition(all, 0.2s, linear);
+      &:before {
+        content: "\f005";
+        /* Star */
+        margin: 2px 5px;
+        font-size: 1.5rem;
+        font-family: "Font Awesome 5 Free";
+        display: inline-block;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+/* //END => Product Details Style */

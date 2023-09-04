@@ -1,0 +1,217 @@
+/* blog */
+.item-blog {
+  img {
+    transition: 0.5s;
+  }
+  &:hover img {
+    opacity: 0.8;
+  }
+  a.h4 {
+    color: var(--fontsColor);
+    font-weight: 600;
+    @include media-max($sm) {
+      font-size: calc(1rem + 0.3vw);
+    }
+    &:hover {
+      color: var(--mainColor);
+    }
+  }
+  .date {
+    @include media-max($sm) {
+      font-size: 12px;
+    }
+  }
+  p {
+    margin-bottom: 0;
+    @include media-max($sm) {
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+}
+
+.title-news {
+  padding: 0 16px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 2rem;
+  strong {
+    @include media-max($md) {
+      font-size: 18px;
+    }
+  }
+  > div {
+    span {
+      @if $directions == "ltr" {
+        border-right: 1px solid #ddd;
+        margin-right: 1rem;
+        padding-right: 1rem;
+      } @else {
+        border-left: 1px solid #ddd;
+        margin-left: 1rem;
+        padding-left: 1rem;
+      }
+      @include media-max($md) {
+        font-size: 13px;
+      }
+      &:last-child {
+        border: 0;
+      }
+    }
+  }
+}
+.news-post {
+  .img-post {
+    position: relative;
+    &::after,
+    &::before {
+      z-index: -1;
+      position: absolute;
+      content: "";
+      bottom: 15px;
+      left: 10px;
+      width: 50%;
+      top: 80%;
+      max-width: 300px;
+      background: #777;
+      box-shadow: 0 15px 10px rgba($color: #000000, $alpha: 0.3);
+      -webkit-transform: rotate(-3deg);
+      -moz-transform: rotate(-3deg);
+      -o-transform: rotate(-3deg);
+      -ms-transform: rotate(-3deg);
+      transform: rotate(-3deg);
+    }
+    &:after {
+      -webkit-transform: rotate(3deg);
+      -moz-transform: rotate(3deg);
+      -o-transform: rotate(3deg);
+      -ms-transform: rotate(3deg);
+      transform: rotate(3deg);
+      right: 10px;
+      left: auto;
+    }
+    img {
+      display: block;
+      margin: auto;
+      border-radius: 30px;
+      -webkit-filter: drop-shadow(0 -2px 10px rgba(0, 0, 0, 0.3));
+      filter: drop-shadow(0 -2px 10px rgba(0, 0, 0, 0.3));
+    }
+  }
+  .desc {
+    padding: 0 16px;
+    p {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--fontsColor);
+    }
+  }
+}
+
+blockquote {
+  display: block;
+  background: #fff;
+  padding: 18px 40px 18px 40px;
+  margin: 0 0 20px;
+  position: relative;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #666;
+  text-align: justify;
+  border-left: 15px solid var(--mainColor);
+  border-right: 2px solid var(--mainColor);
+  -moz-box-shadow: 2px 2px 15px #ccc;
+  -webkit-box-shadow: 2px 2px 15px #ccc;
+  box-shadow: 2px 2px 15px #ccc;
+  &::before {
+    content: "\201C";
+    font-size: 60px;
+    font-weight: bold;
+    color: #999;
+    position: absolute;
+    top: 5px;
+    @if $directions == "ltr" {
+      left: 5px;      
+    } @else {
+      right: 5px;
+      transform: rotateY(180deg);
+    }
+  }
+  &::after {
+    content: "";
+  }
+  a {
+    text-decoration: none;
+    background: #eee;
+    cursor: pointer;
+    padding: 0 3px;
+    color: var(--mainColor);
+    &:hover {
+      color: #666;
+    }
+  }
+  em {
+    font-style: italic;
+  }
+}
+
+.share-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 50px;
+  border: 2px solid #f1f1f1;
+  @include media-max($md) {
+    flex-wrap: wrap;
+  }
+  .left-block {
+    @include media-max($md) {
+      margin-bottom: 1rem;
+    }
+    p {
+      margin: 0;
+      color: #012237;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    a {
+      color: var(--mainColor);
+      font-size: 16px;
+      font-weight: 500;
+      -webkit-transition: all 0.4s ease;
+      transition: all 0.4s ease;
+      margin-left: 5px;
+      letter-spacing: 0;
+      &:hover {
+        color: #012237;
+      }
+    }
+  }
+  .social-block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    a {
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      color: #81868a;
+      font-size: 18px;
+      -webkit-transition: all 0.4s ease;
+      transition: all 0.4s ease;
+      + a {
+        @if $directions == "ltr" {
+          margin-left: 38px;
+        } @else {
+          margin-right: 38px;
+        }
+      }
+      &:hover {
+        color: var(--mainColor);
+      }
+    }
+  }
+}
+
+/* // blog */

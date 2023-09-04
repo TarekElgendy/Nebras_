@@ -1,0 +1,40 @@
+// default breakpknts
+$xxs: 280.98px;
+$xs: 380.98px;
+$sm: 575.98px;
+$md: 767.98px;
+$lg: 991.98px;
+$xl: 1200px;
+$xxl: 1400px;
+
+$mxHeight: 851.98px;
+$mmHeight: 600px;
+
+@mixin media-min($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin media-max($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin max-height($hy, $hy2) {
+  @media (max-height: $hy) and (min-height: $hy2) {
+    @content;
+  }
+}
+
+/* Using */
+
+// body {
+//   @include media-max($xl) {
+//     display: none !important;
+//   }
+//   @include media-min($xl) {
+//     display: none !important;
+//   }
+// }

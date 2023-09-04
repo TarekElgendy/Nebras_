@@ -1,0 +1,51 @@
+/* Title */
+.title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  h4 {
+    margin: 0;
+    font-weight: 600;
+
+    @include media-max($md) {
+      font-size: 18px;
+    }
+  }
+}
+/* end Title */
+
+/* Title 2 */
+.title2 {
+  text-align: center;
+
+  h4 {
+    position: relative;
+    display: inline-block;
+    padding: 0 2rem;
+
+    &::before,
+    &::after {
+      width: 10%;
+      height: 2px;
+      content: "";
+      background: #444444;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: -30px;
+    }
+
+    &::after {
+      right: -30px;
+      left: unset;
+    }
+  }
+
+  p {
+    font-weight: 500;
+  }
+}
+/* end Title 2 */

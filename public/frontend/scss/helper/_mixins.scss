@@ -1,0 +1,13 @@
+@mixin transition($property, $duration, $timingFunction) {
+  transition: $property $duration $timingFunction;
+}
+
+@mixin translate($y, $x) {
+  transform: translate($y, $x);
+}
+@mixin translateY($y) {
+  transform: translateY($y);
+}
+@mixin translateX($x) {
+  transform: translateX($x);
+}

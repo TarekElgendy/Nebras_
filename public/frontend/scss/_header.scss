@@ -1,0 +1,559 @@
+/*
+  =======================
+        Start Header
+  =======================
+*/
+header {
+  .top-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+
+    @include media-max($md) {
+      justify-content: center;
+    }
+
+    &_left {
+      display: flex;
+
+      .txt_off {
+        @if $directions== "ltr" {
+          margin-right: 0.8rem;
+          padding-right: 0.8rem;
+          border-right: 1px solid #ddd;
+        } @else {
+          margin-left: 0.8rem;
+          padding-left: 0.8rem;
+          border-left: 1px solid #ddd;
+          font-weight: 600;
+        }
+        @include media-max($md) {
+          border: 0;
+        }
+      }
+
+      a {
+        @include media-max($md) {
+          display: none !important;
+        }
+        i {
+          font-size: 18px;
+        }
+        span {
+          @include media-max($md) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &_right {
+      display: flex;
+      @include media-max($md) {
+        display: none !important;
+      }
+
+      div {
+        padding: 0 15px;
+
+        @if $directions== "ltr" {
+          border-right: 1px solid #ddd;
+          border-left: 0;
+
+          &:last-child {
+            border: 0;
+            padding-right: 0;
+          }
+        } @else {
+          border-left: 1px solid #ddd;
+          border-right: 0;
+
+          &:last-child {
+            border: 0;
+            padding-left: 0;
+          }
+        }
+        a {
+          span {
+            @include media-max($xl) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    p {
+      color: var(--fontsColor);
+      font-weight: 500;
+    }
+
+    a {
+      color: var(--fontsColor);
+      font-weight: 500;
+      text-transform: capitalize;
+      &:hover {
+        color: var(--mainColor);
+      }
+    }
+  }
+
+  .middle-header {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+
+    @include media-max($xl) {
+      padding: 1rem 0;
+      .logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        > a {
+          width: 100px;
+        }
+        .toggle-menu {
+          font-size: 20px;
+          @if $directions == "ltr" {
+            margin-left: 1rem;
+          } @else {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+
+    .logo-img {
+      a {
+        display: block;
+      }
+    }
+
+    nav {
+      @include media-max($xl) {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        height: 100%;
+        background-color: #fff;
+        width: 250px;
+        z-index: 99999;
+        padding: 2rem 0;
+        overflow-y: scroll;
+        @include transition(all, 0.25s, cubic-bezier(0.645, 0.045, 0.355, 1));
+      }
+      &.showing {
+        left: 0;
+      }
+      .logo-menu {
+        display: none;
+        @include media-max($xl) {
+          display: block;
+          width: 150px;
+          margin: auto;
+          margin-bottom: 2rem;
+        }
+      }
+      > ul {
+        @include media-max($xl) {
+          display: block !important;
+        }
+        > li {
+          padding: 0 10px;
+          position: relative;
+          line-height: 70px;
+          @include media-max($xl) {
+            line-height: 20px;
+            border-bottom: 1px dashed #ddd;
+            padding: 14px 10px;
+          }
+
+          > a {
+            color: var(--fontsColor);
+            font-weight: 600;
+            font-size: 16px;
+            position: relative;
+            text-transform: capitalize;
+            @include media-max($xl) {
+              display: block;
+            }
+            > span {
+              font-size: 9px;
+              position: absolute;
+              top: -15px;
+              background-color: var(--mainColor);
+              color: #fff;
+              line-height: initial;
+              padding: 2px 5px;
+              border-radius: 6px;
+              text-transform: uppercase;
+              @if $directions == "rtl" {
+                left: 0;
+              } @else {
+                right: 0;
+              }
+              @include media-max($xl) {
+                position: static;
+              }
+            }
+            &:hover {
+              color: var(--mainColor);
+            }
+            i {
+              @include transition(all, 0.4s, ease-in-out);
+              @include media-max($xl) {
+                position: absolute;
+                top: 10px;
+                @if $directions == "ltr" {
+                  right: 0;
+                } @else {
+                  left: 0;
+                }
+              }
+            }
+          }
+
+          > ul {
+            position: absolute;
+            top: 100%;
+            @if $directions == 'ltr' {
+              left: 0;
+            } @else {
+              right: 0;
+            }
+            z-index: 5;
+            min-width: 13rem;
+            border-radius: 3px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
+            padding: 14px 7px;
+            opacity: 0;
+            pointer-events: none;
+            user-select: none;
+            margin-top: 10px;
+            @include transition(all, 0.2s, ease-in-out);
+            @include media-max($xl) {
+              padding: 0px 7px;
+              margin: 0;
+              height: 0;
+              position: relative;
+              top: auto;
+              left: auto;
+              bottom: auto;
+              right: auto;
+              min-width: 100%;
+              width: 100%;
+              background-color: transparent;
+              box-shadow: unset;
+              z-index: initial;
+              &::before {
+                content: "";
+                position: absolute;
+                top: 10px;
+                left: 0;
+                height: 93%;
+                width: 2px;
+                background-color: #ddd;
+              }
+            }
+
+            > li {
+              line-height: initial;
+              position: relative;
+              > a {
+                display: block;
+                padding: 8px 10px;
+                color: var(--fontsColor);
+                font-size: 13px;
+                font-weight: 600;
+                position: relative;
+                text-transform: capitalize;
+                span {
+                  font-size: 10px;
+                  color: var(--mainColor);
+                  position: absolute;
+                  top: 8px;
+                  text-transform: uppercase;
+                  @if $directions == "rtl" {
+                    left: 0;
+                  } @else {
+                    right: 0;
+                  }
+                }
+                > i {
+                  @include transition(all, 0.4s, ease-in-out);
+                  position: absolute;
+                  top: 14px;
+                  @if $directions== "rtl" {
+                    left: -3px;
+                  } @else {
+                    right: -3px;
+                  }
+                }
+                &:hover {
+                  color: var(--mainColor);
+                }
+              }
+            }
+          }
+          &:hover > ul {
+            opacity: 1;
+            pointer-events: initial;
+            user-select: initial;
+            margin-top: 0px;
+            height: auto;
+          }
+          &:hover {
+            > a {
+              border-bottom: 0;
+            }
+          }
+          &:hover > a > i {
+            @if $directions == "rtl" {
+              transform: rotate(-90deg);
+            } @else {
+              transform: rotate(90deg);
+            }
+          }
+        }
+      }
+    }
+
+    .header-actions {
+      > div {
+        + div {
+          @if $directions== "ltr" {
+            margin-left: 2rem;
+          } @else {
+            margin-right: 2rem;
+          }
+        }
+
+        > a {
+          color: var(--fontsColor);
+
+          &:hover {
+            color: var(--mainColor);
+          }
+
+          font: {
+            size: 20px;
+          }
+
+          position: relative;
+
+          .count {
+            position: absolute;
+            top: -10px;
+            right: -15px;
+            background-color: var(--secondColor);
+            color: #fff;
+            font-size: 13px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include transition(0.3s, all, ease-in-out);
+          }
+
+          &:hover .count {
+            background-color: var(--mainColor);
+          }
+        }
+      }
+      .icon_mobile {
+        display: none;
+      }
+      @include media-max($md) {
+        .icon_mobile {
+          display: block;
+        }
+        .no_mobile {
+          display: none;
+        }
+      }
+
+      .box-search {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%) translateY(-180px);
+        width: 100%;
+        background-color: #fff;
+        z-index: 99999;
+        padding: 2.5rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        @include transition(all, 0.4s, ease-in-out);
+        height: 180px;
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+        &.showing {
+          transform: translateX(-50%) translateY(0);
+          opacity: 1;
+          pointer-events: all;
+          visibility: visible;
+        }
+        strong {
+          margin: 1rem auto;
+          color: #444;
+        }
+        .close_search {
+          position: absolute;
+          top: 20px;
+          cursor: pointer;
+          color: #f00;
+          font-size: 1.2rem;
+          @if $directions== "ltr" {
+            right: 30px;
+          } @else {
+            left: 50px;
+          }
+        }
+        form {
+          input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            outline: none;
+            background-color: transparent;
+            color: #444;
+            @if $directions== "ltr" {
+              border: 1px solid #666;
+              border-right: 0;
+            } @else {
+              border: 1px solid #666;
+              border-left: 0;
+            }
+          }
+          button {
+            outline: none;
+            width: 70px;
+            padding: 1rem;
+            border: 1px solid var(--mainColor);
+            border-left: 0;
+            background-color: var(--mainColor);
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            opacity: 0.8;
+            transition: 0.3s;
+            @if $directions== "ltr" {
+              border-radius: 0 5px 5px 0;
+            } @else {
+              border-radius: 5px 0 0 5px;
+            }
+            &:hover {
+              opacity: 1;
+              background-color: var(--mainColor);
+            }
+          }
+        }
+      }
+
+      @include media-max($md) {
+        
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+        background-color: #fff;
+        width: 100%;
+        justify-content: space-around !important;
+        padding: 15px 3px 5px 3px;
+        box-shadow: 0 -2px 10px #ddd;
+        border-radius: 30px 30px 0 0;
+        background-color: var(--mainColor);
+        > div {
+          + div {
+            margin: 0;
+          }
+          a {
+            color: #fff;
+            &:hover {
+              color: var(--fontsColor);
+            }
+            &:hover .count {
+              background-color: var(--fontsColor);
+            }
+          }
+        }
+        .icon_call {
+          a {
+            font-size: 37px;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            @include translateX(-50%);
+            background-color: var(--mainColor);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include media-max($xs) {
+              font-size: 22px;
+              top: -16px;
+              width: 50px;
+              height: 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.toggle-menu {
+  display: none;
+  @include media-max($xl) {
+    display: block;
+  }
+}
+
+.header-style2 {
+  .middle-header {
+    background-color: var(--secondColor);
+    .toggle-menu {
+      color: #fff;
+    }
+    nav {
+      @include media-max($xl) {
+        background-color: var(--secondColor);
+      }
+      > ul {
+        > li {
+          > a {
+            color: #fff;
+          }
+          @include media-max($xl) {
+            a {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+    .header-actions {
+      > div {
+        > a {
+          color: #fff;
+          .count {
+            background-color: var(--mainColor);
+          }
+        }
+      }
+    }
+  }
+}
+/*
+  =======================
+        End Header
+  =======================
+*/

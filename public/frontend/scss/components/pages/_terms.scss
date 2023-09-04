@@ -1,0 +1,29 @@
+/*
+  Terms
+*/
+.terms-details {
+  line-height: 2;
+  h1 {
+    color: #111;
+  }
+  strong {
+    font-weight: 700;
+    margin-top: 2rem;
+    color: #111;
+    line-height: 2;
+  }
+  li,
+  p {
+    font-size: 15px;
+    font-weight: 600;
+    color: #444;
+  }
+  ul {
+    margin-bottom: 1.5rem;
+  }
+  li {
+    list-style: inside;
+  }
+}
+
+/* // Terms */

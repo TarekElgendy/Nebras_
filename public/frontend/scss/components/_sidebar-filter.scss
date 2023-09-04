@@ -1,0 +1,297 @@
+/*
+  START => Sidebar Filter
+*/
+.sidebar-filter {
+  border: 1px solid #ddd;
+  padding: 10px;
+  @include media-max($lg) {
+    position: fixed;
+    top: 0;
+    left: -290px;
+    z-index: 99999;
+    background-color: #fff;
+    height: 100%;
+    width: 290px;
+    overflow-y: scroll;
+    @include transition(all, 0.25s, cubic-bezier(0.645, 0.045, 0.355, 1));
+    &.showing {
+      left: 0;
+    }
+  }
+  &.filter_fixed {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    z-index: 9999;
+    background-color: #fff;
+    height: 100%;
+    width: 280px;
+    overflow-y: scroll;
+    @include transition(all, 0.25s, cubic-bezier(0.645, 0.045, 0.355, 1));
+    &.showing {
+      left: 0;
+    }
+  }
+  .blocks {
+    .block-filtering {
+      > span {
+        font-size: 12px;
+        background-color: #dae4ff;
+        font-weight: 500;
+        padding: 3px 5px;
+        border-radius: 10px;
+        color: #e96021;
+        cursor: pointer;
+        @include transition(all, 0.2s, ease-in);
+        display: inline-block;
+        &:hover {
+          background-color: #f44336;
+          color: #ffffff;
+        }
+        &:hover i {
+          color: #000;
+        }
+      }
+    }
+    .block-title {
+      margin: 14px 0;
+      h6 {
+        padding: 10px;
+        border: 1px solid #ddd;
+        margin-bottom: 0;
+        font-weight: 600;
+        color: var(--fontsColor);
+      }
+    }
+    .form-check {
+      @if $directions == "ltr" {
+        padding-left: 2.5em;
+      } @else {
+        padding-right: 2.5em;
+      }
+      .form-check-input {
+        margin-left: -2em;
+        width: 1.3em;
+        height: 1.3em;
+        margin-top: 0em;
+      }
+      label {
+        color: var(--fontsColor);
+        font-weight: 600;
+      }
+    }
+    .block-colors {
+      display: flex;
+    }
+  }
+}
+
+.range-slider {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  margin-top: 40px;
+  > div {
+    margin-bottom: 10px;
+    input[type="number"] {
+      font-size: 14px;
+      background-color: transparent;
+      color: #666;
+      border: 1px solid #ddd;
+      border-radius: 2px;
+      outline: 0;
+      padding: 4px 4px;
+      font-weight: 500;
+
+      text-align: center;
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+
+      &:invalid,
+      &:out-of-range {
+        border: 2px solid #f00;
+        color: #f00;
+      }
+    }
+  }
+
+  svg,
+  input[type="range"] {
+    position: absolute;
+    top: -20px;
+    left: 0;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+      background: var(--mainColor);
+    }
+    &:focus::-webkit-slider-runnable-track {
+      background: var(--mainColor);
+    }
+    &:focus::-ms-fill-lower {
+      background: var(--mainColor);
+    }
+    &:focus::-ms-fill-upper {
+      background: var(--mainColor);
+    }
+    &::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 5px;
+      cursor: pointer;
+      background: var(--mainColor);
+      border-radius: 0px;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      border: 0;
+    }
+    &::-webkit-slider-thumb {
+      z-index: 2;
+      position: relative;
+      -webkit-box-shadow: 0px 0px 0px #fff;
+      box-shadow: 0px 0px 0px #fff;
+      border: 3px solid var(--mainColor);
+      height: 18px;
+      width: 18px;
+      border-radius: 25px;
+      background: #fff;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -7px;
+    }
+    &::-moz-range-track {
+      width: 100%;
+      height: 5px;
+      cursor: pointer;
+      background: var(--mainColor);
+      border-radius: 1px;
+      box-shadow: none;
+      border: 0;
+    }
+    &::-moz-range-thumb {
+      z-index: 2;
+      position: relative;
+      box-shadow: 0px 0px 0px var(--mainColor);
+      border: 1px solid var(--mainColor);
+      height: 18px;
+      width: 18px;
+      border-radius: 25px;
+      background: var(--mainColor);
+      cursor: pointer;
+    }
+    &::-ms-track {
+      width: 100%;
+      height: 5px;
+      cursor: pointer;
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+    &::-ms-fill-lower,
+    &::-ms-fill-upper {
+      background: var(--mainColor);
+      border-radius: 1px;
+      box-shadow: none;
+      border: 0;
+    }
+    &:-ms-thumb {
+      z-index: 2;
+      position: relative;
+      box-shadow: 0px 0px 0px #000;
+      border: 1px solid var(--mainColor);
+      height: 18px;
+      width: 18px;
+      border-radius: 25px;
+      background: var(--mainColor);
+      cursor: pointer;
+    }
+  }
+}
+
+.filter-sorts {
+  padding: 1rem 0.5rem;
+  margin-bottom: 1rem;
+  @include media-max($sm) {
+    padding: 1rem 0rem;
+  }
+  .items_founded {
+    font-weight: 600;
+    color: var(--fontsColor);
+    span {
+      color: var(--mainColor);
+    }
+    @include media-max($lg) {
+      margin-bottom: 1rem;
+    }
+  }
+  .dropdown {
+    &:not(:last-child) {
+      @if $directions== "ltr" {
+        margin-right: 1rem;
+        @include media-max($sm) {
+          margin-right: 0.2rem;
+        }
+      } @else {
+        margin-left: 1rem;
+        @include media-max($sm) {
+          margin-left: 0.2rem;
+        }
+      }
+    }
+    .dropdown-toggle {
+      color: var(--fontsColor);
+      font-weight: 600;
+      border: 1px solid var(--fontsColor);
+      padding: 6px 8px;
+      border-radius: 4px;
+      @include media-max($sm) {
+        font-weight: 700;
+        font-size: 10px;
+      }
+    }
+  }
+
+  .toggle_filter {
+    display: none;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--fontsColor);
+    font-weight: 600;
+    border: 1px solid var(--fontsColor);
+    padding: 5px 8px;
+    border-radius: 4px;
+    &:hover {
+      color: var(--mainColor);
+    }
+    i {
+      font-size: 16px;
+      @include media-max($sm) {
+        font-size: 16px;
+      }
+    }
+    @include media-max($lg) {
+      display: block;
+      @if $directions== "ltr" {
+        margin-left: auto;
+      } @else {
+        margin-right: auto;
+      }
+    }
+
+    &.d-block {
+      @if $directions== "ltr" {
+        margin-right: 1rem;
+      } @else {
+        margin-left: 1rem;
+      }
+    }
+  }
+}
+/* //END => Sidebar Filter */

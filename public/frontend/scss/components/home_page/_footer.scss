@@ -1,0 +1,232 @@
+/*
+  START => Footer
+*/
+footer {
+  box-shadow: 0 -1px 10px rgba($color: #000000, $alpha: 0.1);
+  padding: 60px 0 0 0;
+  
+  @include media-max($md) {
+    padding: 30px 0 50px 0;
+  }
+  
+  .wedget-footer {
+    @include media-max($md) {
+      padding: 16px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .logo-footer {
+      max-width: 220px;
+      display: block;
+      margin-bottom: 1rem;
+      @include media-max($md) {
+        max-width: 120px;
+      }
+      @include media-max($lg) {
+        max-width: 120px;
+      }
+    }
+
+    .social-media {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      
+      li {
+        a {
+          display: inline-block;
+          margin: auto 0.3rem;
+          @include media-max($lg) {
+            margin: auto 0.2rem;
+          }
+          i {
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include media-max($lg) {
+              width: 25px;
+              height: 25px;
+              font-size: 12px;
+            }
+            
+            &.fa-facebook-f {
+              background-color: #3b5998;
+            }
+            
+            &.fa-twitter {
+              background-color: #55acee;
+            }
+            
+            &.fa-instagram {
+              background-color: #e95950;
+              background: radial-gradient(
+                  circle farthest-corner at 35% 90%,
+                  #fec564,
+                  transparent 50%
+                  ),
+                  radial-gradient(
+                    circle farthest-corner at 0 140%,
+                    #fec564,
+                    transparent 50%
+                    ),
+                    radial-gradient(
+                      ellipse farthest-corner at 0 -25%,
+                      #5258cf,
+                      transparent 50%
+                      ),
+                      radial-gradient(
+                        ellipse farthest-corner at 20% -50%,
+                        #5258cf,
+                        transparent 50%
+                        ),
+                        radial-gradient(
+                          ellipse farthest-corner at 100% 0,
+                          #893dc2,
+                          transparent 50%
+                          ),
+                          radial-gradient(
+                            ellipse farthest-corner at 60% -20%,
+                            #893dc2,
+                            transparent 50%
+                            ),
+                            radial-gradient(
+                              ellipse farthest-corner at 100% 100%,
+                  #d9317a,
+                  transparent
+                  ),
+                  linear-gradient(
+                    #6559ca,
+                    #bc318f 30%,
+                    #e33f5f 50%,
+                    #f77638 70%,
+                    #fec66d 100%
+                    );
+                  }
+
+            &.fa-linkedin-in {
+              background-color: #007bb5;
+            }
+            
+            &.fa-youtube {
+              background-color: #e95950;
+            }
+            
+            &.fa-tiktok {
+              background-color: #010101;
+            }
+            
+            &.fa-snapchat {
+              background-color: #ffcd36;
+            }
+          }
+        }
+      }
+    }
+    
+    > p {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--fontsColor);
+      @include media-max($lg) {
+        font-size: 12px;
+      }
+    }
+    
+    .title-footer {
+      padding-bottom: 12px;
+      font-weight: 600;
+      color: var(--fontsColor);
+      position: relative;
+      
+      @include media-max($lg) {
+        font-size: 12px;
+      }
+
+      &::after {
+        content: "";
+        width: 70px;
+        height: 8px;
+        background-color: #e960212e;
+        position: absolute;
+        bottom: 10px;
+        z-index: -1;
+        @if $directions == "ltr" {
+          left: 2px;
+        } @else {
+          right: 2px;
+        }
+      }
+    }
+    
+    .links-footer {
+      li {
+        margin-bottom: 8px;
+        
+        a {
+          color: var(--fontsColor);
+          font-size: 14px;
+          font-weight: 500;
+          position: relative;
+          @include media-max($lg) {
+            font-size: 12px;
+          }
+          
+          &::after {
+            content: "";
+            width: 0%;
+            height: 6px;
+            background-color: #e960212e;
+            position: absolute;
+            bottom: 0;
+            z-index: -1;
+            @include transition(all, 0.4s, linear);
+            @if $directions == "ltr" {
+              left: 1px;
+            } @else {
+              right: 1px;
+            }
+          }
+          
+          &:hover::after {
+            width: 70%;
+          }
+        }
+      }
+    }
+    
+    .contacts-footer {
+      p {
+        color: var(--fontsColor);
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        @include media-max($lg) {
+          font-size: 12px;
+        }
+        
+        i {
+          font-size: 1rem;
+          width: 40px;
+          text-align: center;
+          @include media-max($lg) {
+            font-size: 12px;
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
+  
+  .copyright {
+    background-color: var(--mainColor);
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+}
+
+/* //END => Footer */

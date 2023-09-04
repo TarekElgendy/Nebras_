@@ -1,0 +1,131 @@
+/*
+  UI Styles: Checkbox Core
+*/
+
+.box-check {
+  input[type="radio"],
+  input[type="radio"]:active,
+  input[type="radio"]:focus,
+  input[type="radio"]:checked {
+    display: none;
+  }
+  input[type="radio"]:disabled,
+  input[type="radio"]:disabled + label span {
+    cursor: not-allowed;
+  }
+  label {
+    display: flex;
+    align-items: center;
+    color: var(--fontsColor);
+    cursor: pointer;
+    strong {
+      font-weight: 600;
+      @if $directions== "ltr" {
+        margin-left: 0.5rem;
+      } @else {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  input[type="radio"] {
+    + label span {
+      width: 30px;
+      height: 30px;
+      background: #454545;
+      cursor: pointer;
+      position: relative;
+      padding: 0;
+      margin: 5px;
+      border: none;
+      backface-visibility: hidden; // Chrome Flicker Fix
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      -o-appearance: none;
+      appearance: none;
+      -webkit-transition: 0.075s;
+      -moz-transition: 0.075s;
+      -ms-transition: 0.075s;
+      -o-transition: 0.075s;
+      transition: 0.075s;
+      // box-shadow: 0 2px 0 #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      border-radius: 50%;
+    }
+    &:checked {
+      + label span::before {
+        content: "";
+        display: block;
+        width: 8px;
+        height: 14px;
+        border: solid #fff;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        // @include transition(all, 0.4s, ease-in-out);
+        animation-name: animatedCheck;
+        animation-duration: 0.3s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+      }
+      + label strong {
+        color: var(--mainColor);
+      }
+    }
+  }
+
+  @keyframes animatedCheck {
+    0% {
+      transform: scale(0) rotate(45deg);
+    }
+    100% {
+      transform: scale(1) rotate(45deg);
+    }
+  }
+
+  /*
+    UI Styles: Checkbox Colors
+  */
+
+  input[type="radio"].black + label span {
+    background: $black-flat;
+    &:active {
+      top: 2px;
+    }
+  }
+  input[type="radio"].blue + label span {
+    background: $blue-flat;
+    &:active {
+      top: 2px;
+    }
+  }
+  input[type="radio"].orange + label span {
+    background: $orange-flat;
+    &:active {
+      top: 2px;
+    }
+  }
+  input[type="radio"].pink + label span {
+    background: $pink-flat;
+    &:active {
+      top: 2px;
+    }
+  }
+  input[type="radio"].red + label span {
+    background: $red-flat;
+    &:active {
+      top: 2px;
+    }
+  }
+  input[type="radio"].yellow + label span {
+    background: $yellow-flat;
+    &:active {
+      top: 2px;
+    }
+  }
+}
+/*
+  // UI Styles: Checkbox Core
+*/

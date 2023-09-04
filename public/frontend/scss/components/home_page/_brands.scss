@@ -1,0 +1,21 @@
+/*
+  START => Brand Item
+*/
+.brand-item {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+
+  img {
+    max-height: 100%;
+    opacity: 0.7;
+    @include transition(all, 0.3s, ease-in)
+  }
+
+  &:hover img {
+    opacity: 1;
+  }
+}
+/* //END => Brand Item */

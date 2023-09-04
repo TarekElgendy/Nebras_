@@ -1,0 +1,66 @@
+/*
+  START => Offers Section
+*/
+.offers {
+  span {
+    font-weight: 600;
+    font-size: 10px;
+    position: absolute;
+    color: #fff;
+    padding: 2px 8px;
+
+    @include media-max($md) {
+      padding: 1px 5px;
+      font-size: 9px;
+    }
+  }
+
+  &_1 {
+    top: 10px;
+    left: 10px;
+    background-color: var(--mainColor);
+    padding: 2px 8px;
+  }
+
+  &_2 {
+    top: 10px;
+    right: 10px;
+    background-color: var(--secondColor);
+  }
+
+  &_3 {
+    bottom: 10px;
+    @if $directions == "ltr" {
+      right: 10px;
+    } @else {
+      left: 10px;
+    }
+    background-color: #cf0209;
+    padding: 0 !important;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    font-size: 12px !important;
+    box-shadow: 0 0 10px #cf0209;
+    @include media-max($md) {
+      width: 30px;
+      height: 30px;
+      font-size: 9px !important;
+    }
+    b {
+      display: block;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1;
+      @include media-max($md) {
+        font-size: 10px;
+      }
+    }
+  }
+}
+/* //END => Offers Section */

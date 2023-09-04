@@ -1,0 +1,27 @@
+/*
+  About Page
+*/
+.about-text {
+  .sup_title {
+    color: #bbb;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+  }
+  h1 {
+    color: var(--fontsColor);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  p {
+    font-weight: 500;
+    color: #666;
+    strong  {
+      display: block;
+      color: #555;
+      margin: 7px 0;
+    };
+  }
+}
+
+/* // About Page */

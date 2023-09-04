@@ -1,0 +1,30 @@
+/* paginations */
+.paginations {
+  li {
+    margin: auto 5px;
+    font-family: "Roboto", sans-serif;
+    a {
+      background-color: #fff;
+      border: 1px solid #e3e5ee;
+      color: #919090;
+      padding: 8px 15px;
+      display: block;
+      border-radius: 4px;
+      &.active,
+      &:hover,
+      &:focus {
+        background-color: var(--mainColor);
+        color: #fff;
+      }
+      @include media-max($sm) {
+        padding: 4px 8px;
+        font-size: 12px;
+      }
+    }
+    &.disabled a {
+      cursor: no-drop;
+      pointer-events: none;
+    }
+  }
+}
+/* end paginations */

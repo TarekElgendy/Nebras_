@@ -1,0 +1,65 @@
+/* compare table */
+.compare-table {
+  .table {
+    text-transform: capitalize;
+    thead {
+      vertical-align: middle;
+    }
+    h6 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--fontsColor);
+    }
+    tbody {
+      border-top: 2px solid var(--mainColor);
+      tr {
+        td {
+          padding: 16px;
+          p {
+            font-weight: 500;
+            font-size: 13px;
+          }
+        }
+      }
+    }
+    .product-img {
+      display: block;
+      text-align: center;
+      img {
+        width: 40%;
+      }
+    }
+
+    .product_name {
+      color: var(--fontsColor);
+      font-weight: 600;
+      font-size: 17px;
+      @include media-max($sm) {
+        font-size: 12px;
+      }
+    }
+
+    .btn-style {
+      margin: 0;
+    }
+
+    .del_compare {
+      opacity: 0.6;
+      color: #444;
+      font-weight: 500;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      i {
+        color: #f00;
+        margin: auto 5px;
+      }
+      &:hover {
+        opacity: 1;
+        color: #f00;
+      }
+    }
+  }
+}
+/* // compare table */

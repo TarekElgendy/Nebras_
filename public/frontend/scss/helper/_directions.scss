@@ -1,0 +1,13 @@
+$directions: "rtl";
+
+@if $directions == "rtl" {
+  .form-check {
+    padding-left: 0em;
+    padding-right: 1.5em;
+  }
+  .form-check .form-check-input {
+    float: right;
+    margin-left: 0;
+    margin-right: -1.5em;
+  }
+}

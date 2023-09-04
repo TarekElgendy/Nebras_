@@ -1,0 +1,61 @@
+/*
+  =======================
+        Start swiper
+  =======================
+*/
+
+.swiper-navs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @if $directions == "rtl" {
+    flex-direction: row-reverse;
+  }
+
+  .next_btn,
+  .prev_btn {
+    position: static;
+    height: auto;
+    width: auto;
+    margin: 0;
+    padding: 0 1rem;
+    color: var(--fontsColor);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      color: var(--mainColor);
+    }
+
+    &::after {
+      font-family: swiper-icons;
+      text-transform: none !important;
+      letter-spacing: 0;
+      font-variant: initial;
+      line-height: 1;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &.next_btn::after {
+      content: "prev";
+    }
+
+    &.prev_btn::after {
+      content: "next";
+    }
+  }
+}
+
+.swiper-categories_two {
+  .swiper-navs {
+    margin-top: 30px;
+    justify-content: center;
+  }
+}
+/*
+  =======================
+        End swiper
+  =======================
+*/
