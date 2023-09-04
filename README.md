@@ -13,4 +13,4 @@
 
 ## License
 
-All Rigths reservid for Developer  [Contact Us ](https://opensource.org/licenses/MIT).
+all rights reserved for developer  .   [Contact Us ](https://wa.me/0201142117402?text="Comming from Githup).
