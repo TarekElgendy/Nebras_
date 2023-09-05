@@ -85,14 +85,25 @@
                                             {{-- <td><a href=""><i class="fas fa-times fa-2x"></i></a></td> --}}
                                             <td>
                                                 <a href="{{ route('cart.distroy', ['id' => encodeId($item->id)]) }}"
-                                                    class="btn btn-danger delete-button"
+                                                    class=" "
                                                     id="my-template"
                                                     >
-                                                    <i class="fas fa-times fa-2x"></i>
+                                                    <i class="fas fa-times "></i>
                                                  </a>
                                             </td>
                                         </tr>
                                     @empty
+                                        <style>
+
+                                        </style>
+                                    <td colspan="7" class="text-center">
+
+                                        <div class="empty-cart">
+                                            <span class="fas fa fa-shopping-cart cart-icon"></span>
+                                        </div>
+                                        @lang('site.cartEmpty')   <a href="{{route('home')}}">@lang('site.home')</a>
+                                    </td>
+
                                     @endforelse
                                 </tbody>
                             </table>
@@ -100,6 +111,10 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">
+
+                    @if (count($cartItems)>0)
+
+
                     <div class="cart-total">
                         <h2> ملخص الطلبية </h2>
                         <ul class="">
@@ -115,6 +130,7 @@
                         </div>
                         <a class="btn-style" href="checkout.html"> إتمام الشراء </a>
                     </div>
+                    @endif
                 </div>
             </div>
 

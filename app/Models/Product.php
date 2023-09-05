@@ -45,7 +45,7 @@ class Product extends Model implements TranslatableContract
     public function brand()
     {
         return $this->belongsTo(Brand::class, 'brand_id');
-    } //end of brand
+    }
     public function comparisons()
     {
         return $this->hasMany(Comparison::class);

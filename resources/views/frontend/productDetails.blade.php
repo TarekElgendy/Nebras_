@@ -28,7 +28,7 @@
     <section class="page-details py-4">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2 col-md-12 order-lg-1 order-md-2 order-2">
+                <div class="col-lg-2 col-md-12 order-lg-1 order-md-2 order-2  " style="display: none">
                     <div class="categories-sidebar">
                         <div class="sidebar-title">
                             <h6> الأقسام </h6>
@@ -50,7 +50,7 @@
                                 alt="{{ $product->title }}" /></a>
                     </div>
                 </div>
-                <div class="col-lg-10 col-md-12 order-lg-2 order-md-1 order-1">
+                <div class="col-lg-12 col-md-12 order-lg-2 order-md-1 order-1">
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
                             <div class="slides-images">

@@ -55,15 +55,56 @@ class HomeController extends Controller
         return view('frontend.home',compact('brands','falg_categories','products','homePageAdLarge_2Box','homePageAdSmall_2Box' ,'sliders','sliderBoxs','categories','homePageAd_3Box'));
     } //end of method
 
+    public function search(Request $request) {
+
+        $categoryIds = $request->input('category_ids', []);
+        $brandIds = $request->input('brand_ids', []);
+
+        $products = Product::when($request->search, function ($q) use ($request) {
+            return $q->whereTranslationLike('title', '%' . $request->search . '%');
+        })
+        ->when(count($brandIds) > 0 || count($categoryIds) > 0, function ($query) use ($brandIds, $categoryIds) {
+            $query->where(function ($subquery) use ($brandIds, $categoryIds) {
+                if (count($brandIds) > 0) {
+                    $subquery->whereIn('brand_id', $brandIds);
+                }
+                if (count($categoryIds) > 0) {
+                    $subquery->orWhereHas('categories', function ($query) use ($categoryIds) {
+                        $query->whereIn('category_id', $categoryIds);
+                    });
+                }
+            });
+        })
+        ->when($request->filled('priceMin'), function ($query) use ($request) {
+            $query->where('price', '>=', $request->input('priceMin'));
+        })
+        ->when($request->filled('priceMax'), function ($query) use ($request) {
+            $query->where('price', '<=', $request->input('priceMax'));
+        })
+        ->where('status', 'active')
+        ->paginate(10);
+
+        $otherCategories=Category::where('status', 'active')->get();
+        $brands=Brand::where('status', 'active')->get();
+        $category=null;
+
+
+
+        return view('frontend.search',compact('otherCategories','brands','categoryIds','brandIds' ,'category','products'));
+
+
+
+    }//end of search
 
     public function categoryProducts($id, $slug)
     {
         $id=decodeId($id);
-
         $otherCategories=Category::where('id','!=',$id)->where('status', 'active')->get();
         $brands=Brand::where('status', 'active')->get();
         $category = Category::where('status', 'active')->where('id', $id)->first();
        $products = $category->products()->where('status', 'active')->paginate(10);
+
+
 
 
         return view('frontend.products',compact('otherCategories','brands' ,'category','products'));
@@ -86,7 +127,7 @@ class HomeController extends Controller
 
     public function products($id, $slug)
     {
-        dd('categry');
+
         $category = Category::where('status', 'active')->where('id', $id)->first();
         $products = $category->products;
         return view('frontend.products', compact('category', 'products'));
@@ -95,7 +136,6 @@ class HomeController extends Controller
     public function productDetails($id, $slug)
     {
         $id=decodeId($id);
-
 
         $product =Product::findOrfail($id);
         $averageRate = $product->rates->avg('rate');

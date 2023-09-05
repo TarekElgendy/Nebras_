@@ -1,6 +1,6 @@
 <?php
 return [
-
+'searchByProducts'=>'أبحث عن منتج , كلمة بحثية',
     'CreateAccount'=>'انشئ حساب    ',
     'unregistered'=>'غير مسجل؟',
     'shoppingCartSummery '=>' ملخص سلة التسوق',
@@ -10,6 +10,7 @@ return [
     'manufactureRequests'=>'طلبات التصنيع ',
     'isInside'=>'هل يعتبر   ',
     'exclusive'=>'حصري',
+    'cartEmpty'=>' عربة التسوق فارغة يمكنك البحث عن منتجات جديدة الان ',
     'offer'=>'عرض ',
     'shoppingCart'=>'عربة التسوق ',
     'feature'=>'جديد',

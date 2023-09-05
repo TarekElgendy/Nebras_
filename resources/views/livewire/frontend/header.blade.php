@@ -95,11 +95,12 @@
                             class="fas fa-search"></i></a>
                     <div class="box-search">
                         <div class="overlay-bg"></div>
-                        <strong class="h4 d-block"> عن ماذا تبحث؟ </strong>
+                        <strong class="h4 d-block"></strong>
                         <i class="fas fa-times close_search"></i>
-                        <form action="shop(left-sidebar).html" class="d-flex">
+
+                        <form action="{{route('search')}}" class="d-flex">
                             <input type="search" name="search" required class="input-search"
-                                placeholder=" اكتب بحثك ... ">
+                                placeholder="  @lang('site.searchByProducts')   ... ">
                             <button type="submit" aria-label="submit"><i class="fas fa-search fa-lg"></i></button>
                         </form>
                     </div>

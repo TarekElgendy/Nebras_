@@ -60,6 +60,8 @@ Route::group(
         Route::get('/prodcut/category/{id}/{slug?}', [HomeController::class, 'categoryProducts'])->name('categoryProducts');
         Route::get('/prodcut/{id}/{slug?}', [HomeController::class, 'productDetails'])->name('productDetails');
 
+        Route::get('/search', [HomeController::class, 'search'])->name('search');
+
 
         //############# Cart Start ##############
 

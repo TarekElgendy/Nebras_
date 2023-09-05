@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class Header extends Component
 {
-   public $header_items;
+   //public $header_items;
     public function render()
     {
         $headerFlagCategories = Category::where('status', 'active')->where('type','flagHome')->get();

@@ -81,9 +81,8 @@
                                         <img src="{{ $product->icon_path }}" alt="Product" class="front img-fluid">
                                         <img src="{{ $product->image_path }}" alt="Product" class="back img-fluid">
                                         <div class="offers">
-                                            <span class="offers_1"> {{ $category->title ?? '' }} </span>
-                                            <span class="offers_2"> {{ $product->brand->title }}
-                                            </span>
+                                            {{-- <span class="offers_1"> {{ $category->title ?? '' }} </span> --}}
+                                            <span class="offers_2"> {{ $product->brand->title }} </span>
                                             <span
                                                 class="offers_3"><b>{{ calculateDiscount($product->old_price, $product->price) }}%</b>
                                                 @lang('site.discount')</span>
@@ -186,7 +185,7 @@
                                             <div class="form-check">
                                                 <input class="form-check-input" name="category_ids[]" type="checkbox"
                                                     value="{{ $category->id }}" id="chk{{ $category->id }}"
-                                                  >
+                                                    {{ in_array($category->id, $categoryIds) ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="chk{{ $category->id }}">
                                                     {{ $category->title ?? '' }}
                                                 </label>
@@ -204,7 +203,7 @@
                                             <div class="form-check">
                                                 <input class="form-check-input" name="brand_ids[]" type="checkbox"
                                                     value="{{ $brand->id }}" id="chkB{{ $brand->id }}"
-                                                     >
+                                                    {{ in_array($brand->id, $brandIds) ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="chkB{{ $brand->id }}">
                                                     {{ $brand->title ?? '' }}
                                                 </label>
@@ -212,8 +211,6 @@
                                         @endforeach
                                     </div>
                                 </div>
-
-
 
 
 
@@ -232,7 +229,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <input type="submit" name="submit" id="" value="Search">
+
+
+                                <input type="submit" class="col-md-12 btn btn-warning" name="submit" id="" value="Search">
 
                             </div>
                         </div>

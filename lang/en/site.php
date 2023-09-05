@@ -1,12 +1,14 @@
 <?php
 return [
-    'unregistered'=>'Unregistered ?',
+     'unregistered'=>'Unregistered ?',
     'CreateAccount'=>'Create a new account  ',
     'receiveOffers'=>'Receive Offers ',
     'delivery'=>'Delivery ',
     'shoppingCartSummery '=>' shopping Cart Summery ',
     'AddToCart'=>'Add To Cart',
     'comparison'=>'Comparison',
+    'searchByProducts'=>'Search Keyword , Products',
+    'cartEmpty'=>'Your shopping cart is empty. You can search for new products now ',
 
     'rank' => 'Rank',
     'customerApproval' => 'Customer Approval ',
